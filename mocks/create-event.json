@@ -1,0 +1,22 @@
+{
+  "body": {
+    "products": [
+      {
+        "id": 1,
+        "name": "Minion Boneco 6cm",
+        "qnt": 1
+      },
+      {
+        "id": 2,
+        "name": "Minion Boneco 12cm",
+        "qnt": 3
+      }
+    ],
+    "totalPrice": 123
+  },
+  "requestContext": {
+    "identity": {
+      "cognitoIdentityId": "testeUser"
+    }
+  }
+}
