@@ -16,6 +16,7 @@ provider:
 
   environment:
     tableName: minions-orders
+    indexName: userId-index
 
   iamRoleStatements:
     - Effect: Allow
@@ -43,6 +44,14 @@ functions:
     events:
       - http:
           path: order/{id}
+          method: get
+          cors: true
+          authorizer: aws_iam
+  list:
+    handler: list.main
+    events:
+      - http:
+          path: order
           method: get
           cors: true
           authorizer: aws_iam
