@@ -22,7 +22,7 @@ export const main = async (event, context, callback) => {
     .then((data) => {
       const response = {
         statusCode: 200,
-        header: headers,
+        headers: headers,
         body: data,
       };
       callback(null, response);
@@ -31,7 +31,7 @@ export const main = async (event, context, callback) => {
     .catch((err) => {
       const response = {
         statusCode: 500,
-        header: headers,
+        headers: headers,
         body: { err: err.message },
       };
       callback(null, response);
