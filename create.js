@@ -4,15 +4,16 @@ import AWS from "aws-sdk";
 const dynamoDb = new AWS.DynamoDB.DocumentClient();
 
 export const main = async (event, context, callback) => {
+  const data = JSON.parse(event.body);
   const params = {
     TableName: process.env.tableName,
     Item: {
       orderId: uuid.v1(),
-      userId: event.body.userId,
+      userId: data.userId,
       orderedAt: Date.now(),
-      products: event.body.products,
-      totalPrice: event.body.totalPrice,
-      address: event.body.address
+      products: data.products,
+      totalPrice: data.totalPrice,
+      address: data.address
     },
   };
   const headers = {

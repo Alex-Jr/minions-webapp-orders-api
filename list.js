@@ -3,12 +3,13 @@ import AWS from "aws-sdk";
 const dynamoDb = new AWS.DynamoDB.DocumentClient();
 
 export const main = async (event, context, callback) => {
+  const data = JSON.parse(event.body.userId);
   const params = {
     TableName: process.env.tableName,
     IndexName: process.env.indexName,
     KeyConditionExpression: "userId = :userId",
     ExpressionAttributeValues: {
-      ":userId": event.body.userId,
+      ":userId": data.userId,
     },
   };
   const headers = {
