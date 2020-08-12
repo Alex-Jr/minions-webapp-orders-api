@@ -38,7 +38,6 @@ functions:
           path: orders
           method: post
           cors: true
-          authorizer: aws_iam
   get:
     handler: get.main
     events:
@@ -46,7 +45,6 @@ functions:
           path: orders/{id}
           method: get
           cors: true
-          authorizer: aws_iam
   list:
     handler: list.main
     events:
@@ -54,4 +52,3 @@ functions:
           path: orders
           method: get
           cors: true
-          authorizer: aws_iam

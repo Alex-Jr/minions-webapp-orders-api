@@ -8,10 +8,11 @@ export const main = async (event, context, callback) => {
     TableName: process.env.tableName,
     Item: {
       orderId: uuid.v1(),
-      userId: event.requestContext.identity.cognitoIdentityId,
+      userId: event.body.userId,
       orderedAt: Date.now(),
       products: event.body.products,
       totalPrice: event.body.totalPrice,
+      address: event.body.address
     },
   };
   const headers = {
