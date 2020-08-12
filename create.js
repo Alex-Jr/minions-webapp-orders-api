@@ -26,7 +26,7 @@ export const main = async (event, context, callback) => {
       const response = {
         statusCode: 200,
         headers: headers,
-        body: { orderId: params.Item.orderId },
+        body: JSON.stringify({ orderId: params.Item.orderId }),
       };
       callback(null, response);
       return;
@@ -35,7 +35,7 @@ export const main = async (event, context, callback) => {
       const response = {
         statusCode: 500,
         headers: headers,
-        body: {err: err.message }
+        body: JSON.stringify({err: err.message })
       };
       callback(null, response);
       return;
