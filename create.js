@@ -20,7 +20,7 @@ export const main = async (event, context, callback) => {
   };
   const headers = {
     "Access-Control-Allow-Origin": "*",
-    "Access-Control-Allow-Credentials": true,
+    "Access-Control-Allow-Credentials": true
   };
   await dynamoDb
     .put(params)
@@ -29,8 +29,11 @@ export const main = async (event, context, callback) => {
       const response = {
         statusCode: 200,
         headers: headers,
-        body: JSON.stringify({ orderId: params.Item.orderId }),
+        body: JSON.stringify({
+          orderId: params.Item.orderId
+        }),
       };
+      console.log(`New Order: ${params.Item.orderId}`);
       callback(null, response);
       return;
     })
@@ -38,8 +41,11 @@ export const main = async (event, context, callback) => {
       const response = {
         statusCode: 500,
         headers: headers,
-        body: JSON.stringify({err: err.message })
+        body: JSON.stringify({
+          err: err.message
+        }),
       };
+      console.error(err.message);
       callback(null, response);
       return;
     });

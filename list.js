@@ -8,14 +8,13 @@ export const main = async (event, context, callback) => {
     IndexName: process.env.indexName,
     KeyConditionExpression: "userId = :userId",
     ExpressionAttributeValues: {
-      ":userId": event.queryStringParameters.userId,
+      ":userId": event.queryStringParameters.userId
     },
   };
   const headers = {
     "Access-Control-Allow-Origin": "*",
-    "Access-Control-Allow-Credentials": true,
+    "Access-Control-Allow-Credentials": true
   };
-
   await dynamoDb
     .query(params)
     .promise()
@@ -23,7 +22,7 @@ export const main = async (event, context, callback) => {
       const response = {
         statusCode: 200,
         headers: headers,
-        body: JSON.stringify(data.Items),
+        body: JSON.stringify(data.Items)
       };
       callback(null, response);
       return;
@@ -32,8 +31,11 @@ export const main = async (event, context, callback) => {
       const response = {
         statusCode: 500,
         headers: headers,
-        body: JSON.stringify({ err: err.message }),
+        body: JSON.stringify({
+          err: err.message
+        }),
       };
+      console.error(err.message);
       callback(null, response);
       return;
     });
