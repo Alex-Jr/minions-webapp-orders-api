@@ -21,7 +21,7 @@ export const main = async (event, context, callback) => {
       const response = {
         statusCode: 200,
         headers: headers,
-        body: JSON.stringify(data),
+        body: JSON.stringify(data.Item)
       };
       callback(null, response);
       return;
