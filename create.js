@@ -11,6 +11,8 @@ export const main = async (event, context, callback) => {
       orderId: uuid.v1(),
       userId: data.userId,
       orderedAt: Date.now(),
+      userId: data.userId,
+      email: data.email,
       products: data.products,
       totalPrice: data.totalPrice,
       address: data.address
@@ -20,7 +22,6 @@ export const main = async (event, context, callback) => {
     "Access-Control-Allow-Origin": "*",
     "Access-Control-Allow-Credentials": true,
   };
-
   await dynamoDb
     .put(params)
     .promise()
