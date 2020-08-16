@@ -52,3 +52,6 @@ functions:
           path: orders
           method: get
           cors: true
+
+resources:
+  - ${file(resources/api-gateway-errors.yml)}
