@@ -45,6 +45,7 @@ functions:
       - http:
           path: orders/{id}
           method: get
+          cors: true
           authorizer: aws_iam
   list:
     handler: list.main
@@ -52,6 +53,7 @@ functions:
       - http:
           path: orders
           method: get
+          cors: true
           authorizer: aws_iam
 
 resources:
