@@ -8,7 +8,7 @@ export const main = async (event, context, callback) => {
     IndexName: process.env.indexName,
     KeyConditionExpression: "userId = :userId",
     ExpressionAttributeValues: {
-      ":userId": event.queryStringParameters.userId
+      ":userId": event.requestContext.identity.cognitoIdentityId,
     },
   };
   const headers = {

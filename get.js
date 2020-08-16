@@ -33,7 +33,7 @@ export const main = async (event, context, callback) => {
           err: err.message
         }),
       };
-      console.error(err.message)
+      console.error(err.message);
       callback(null, response);
       return;
     });

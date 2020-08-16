@@ -9,9 +9,8 @@ export const main = async (event, context, callback) => {
     TableName: process.env.tableName,
     Item: {
       orderId: uuid.v1(),
-      userId: data.userId,
+      userId: event.requestContext.identity.cognitoIdentityId,
       orderedAt: Date.now(),
-      userId: data.userId,
       email: data.email,
       products: data.products,
       totalPrice: data.totalPrice,
