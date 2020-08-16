@@ -14,7 +14,7 @@ export const main = async (event, context, callback) => {
       email: data.email,
       products: data.products,
       totalPrice: data.totalPrice,
-      address: data.address
+      deliveryInfo: data.deliveryInfo
     },
   };
   const headers = {
